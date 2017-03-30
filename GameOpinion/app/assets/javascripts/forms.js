@@ -1,0 +1,1 @@
+$("form").addClass("ui form");

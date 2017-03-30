@@ -1,0 +1,36 @@
+<div class="ui two column centered grid">
+  <div class="column">
+
+
+    <%= form_for @game do |f| %>
+
+
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Create", class: "ui button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= javascript_include_tag "forms", "data-turbolinks-track" => true  %>
+
+
+
+
+
+

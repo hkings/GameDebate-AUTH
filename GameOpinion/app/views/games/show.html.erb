@@ -1,0 +1,66 @@
+<div class="ui two column centered grid">
+  <div class="column">
+    <h1><%= @game.title %></h1>
+    <div class="ui piled segments">
+      <div class="ui segment">
+        <%= image_tag @game.image.url(:medium) %>
+      </div>
+      <div class="ui segment">
+        <p><b>Description: </b> <%= @game.description %></p>
+      </div>
+      <div class="ui segment">
+        <p><b>Comments: </b> <%= @game.comments.count %></p>
+      </div>
+      <div class="ui segment">
+        <p><b>By:</b> <%= @game.user.email %></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+<div class="ui two column centered grid">
+  <div class="column">
+    <h1>Comments</h1>
+    <% @game.comments.reverse.each do |comment| %>
+      <div class="ui piled segments">
+        <div class="ui segment">
+          <p><b>Comment:</b> <%= comment.body %></p>
+        </div>
+        <div class="ui segment">
+          <p><b>By: </b> <%= comment.user.email %></p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if signed_in? %>
+      <%= form_for [@game, @game.comments.build] do |f| %>
+        <div class="field">
+          <%= f.text_area :body, placeholder: "Comment! (max 250 characters)", maxlength: "250" %>
+        </div>
+
+        <div class="actions text-right">
+          <%= f.submit "Comment", class: "ui button" %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<%= javascript_include_tag "forms", "data-turbolinks-track" => true  %>
+
+
+
+
+
+
+
+

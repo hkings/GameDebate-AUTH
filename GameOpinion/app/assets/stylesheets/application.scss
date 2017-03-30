@@ -1,0 +1,19 @@
+@import "semantic-ui";
+@import "comments.scss";
+@import "games.scss";
+
+body{
+	margin: 50px;
+}
+
+.ui.secondary.pointing.menu{
+	margin-bottom: 50px;
+}
+
+
+.fixed-button {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 45px !important;
+}
